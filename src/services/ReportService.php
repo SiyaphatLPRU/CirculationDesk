@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 /**
- * R-07 รายการเกินกำหนด และตัวเลขสรุปบนแดชบอร์ด
+ * R-07 รายการเกินกำหนด และตัวเลขสรุปบนแดชบอร์ด, R-08 รายงานประวัติการยืม-คืน
  * ค่าปรับสะสมคำนวณ ณ วันที่ส่งเข้ามา (ยังไม่บันทึกลงตาราง)
  */
 final class ReportService
@@ -33,6 +33,58 @@ final class ReportService
             $row['accrued_fine'] = $this->loans->calculateFine($row['due_date'], $today);
         }
         return $rows;
+    }
+
+    /**
+     * R-08 ประวัติการยืม-คืน กรองตามสมาชิกและช่วงวันที่ยืม (borrowed_at รวมวันปลายทั้งสองด้าน)
+     * วันที่รูปแบบ YYYY-MM-DD หรือ null = ไม่กรอง
+     * คืน ['ok' => bool, 'error' => ..., 'rows' => [...], 'count' => int, 'total_fine' => float]
+     */
+    public function history(?int $memberId = null, ?string $from = null, ?string $to = null): array
+    {
+        foreach ([$from, $to] as $date) {
+            if ($date !== null && !valid_date($date)) {
+                return ['ok' => false, 'error' => 'รูปแบบวันที่ไม่ถูกต้อง', 'rows' => [], 'count' => 0, 'total_fine' => 0.0];
+            }
+        }
+        if ($from !== null && $to !== null && $from > $to) {
+            return ['ok' => false, 'error' => 'วันที่เริ่มต้นต้องไม่หลังวันที่สิ้นสุด', 'rows' => [], 'count' => 0, 'total_fine' => 0.0];
+        }
+
+        $where = [];
+        $params = [];
+        if ($memberId !== null) {
+            $where[] = 'l.member_id = ?';
+            $params[] = $memberId;
+        }
+        if ($from !== null) {
+            $where[] = 'l.borrowed_at >= ?';
+            $params[] = $from;
+        }
+        if ($to !== null) {
+            $where[] = 'l.borrowed_at <= ?';
+            $params[] = $to;
+        }
+        $whereSql = $where ? 'WHERE ' . implode(' AND ', $where) : '';
+
+        $stmt = $this->pdo->prepare(
+            "SELECT l.loan_id, l.borrowed_at, l.due_date, l.returned_at, l.fine_amount, l.status,
+                    b.title, m.member_code, m.full_name
+               FROM loans l
+               JOIN books b   ON b.book_id = l.book_id
+               JOIN members m ON m.member_id = l.member_id
+               $whereSql
+              ORDER BY l.borrowed_at DESC, l.loan_id DESC"
+        );
+        $stmt->execute($params);
+        $rows = $stmt->fetchAll();
+
+        return [
+            'ok'         => true,
+            'rows'       => $rows,
+            'count'      => count($rows),
+            'total_fine' => array_sum(array_map('floatval', array_column($rows, 'fine_amount'))),
+        ];
     }
 
     /** ตัวเลขสรุปสำหรับแดชบอร์ด */
