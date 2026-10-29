@@ -11,6 +11,7 @@ $nav = [
     'loans/borrow.php'     => 'ยืม',
     'loans/return.php'     => 'คืน',
     'loans/overdue.php'    => 'เกินกำหนด',
+    'reports/history.php'  => 'รายงาน',
 ];
 $current = substr($_SERVER['SCRIPT_NAME'] ?? '', strlen(base_path()) + 1);
 ?>
