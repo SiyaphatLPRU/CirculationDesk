@@ -1,0 +1,40 @@
+# Traceability Matrix
+
+| รายการ | ค่า |
+|---|---|
+| รหัส SCI | SCI-010 |
+| ชื่อเอกสาร | Traceability Matrix |
+| โครงการ | Circulation Desk – ระบบยืม-คืนหนังสือ |
+| เวอร์ชันเอกสาร | 0.2.0 |
+| สถานะ | ใช้งาน (อัปเดตทุกครั้งที่ merge branch ของ Requirement) |
+
+## ประวัติการแก้ไข
+
+| เวอร์ชัน | วันที่ | ผู้แก้ไข | รายละเอียด |
+|---|---|---|---|
+| 0.2.0 | 2026-10-29 | ผู้พัฒนา | สร้างเอกสาร เพิ่ม R-01 |
+
+## ตาราง Requirement → Branch → Commit → ไฟล์หลัก → Test Case
+
+Commit คือ hash สั้นของ commit งานใน branch (merge commit ดูได้จาก `git log --merges`)
+บรรทัด `Refs: R-xx` ในข้อความ commit ใช้แมปกับเลข Issue ภายหลัง
+
+| Requirement | Branch | Commit | ไฟล์หลัก | Test Case | สถานะ |
+|---|---|---|---|---|---|
+| R-01 เข้าสู่ระบบเจ้าหน้าที่ | `feature/R-01-login` | `9dbc768`, `43f32ba`, `1b2d2ff`, `eb7a52f` | `src/config/config.php`, `src/lib/auth.php`, `src/lib/csrf.php`, `src/lib/bootstrap.php`, `src/public/login.php`, `src/public/logout.php`, `src/public/health.php` | TC-01 – TC-11 | Merge แล้ว |
+| R-02 จัดการหนังสือและหมวดหมู่ | `feature/R-02-books` | – | – | – | ยังไม่เริ่ม |
+| R-03 จัดการสมาชิก | `feature/R-03-members` | – | – | – | ยังไม่เริ่ม |
+| R-04 ค้นหาและดูสถานะหนังสือ | `feature/R-04-search` | – | – | – | ยังไม่เริ่ม |
+| R-05 ยืมหนังสือ | `feature/R-05-borrow` | – | – | – | ยังไม่เริ่ม |
+| R-06 คืนหนังสือ | `feature/R-06-return` | – | – | – | ยังไม่เริ่ม |
+| R-07 ตรวจรายการเกินกำหนด | `feature/R-07-overdue` | – | – | – | ยังไม่เริ่ม |
+| R-08 รายงานประวัติการยืม-คืน | `feature/R-08-history` | – | – | – | ยังไม่เริ่ม |
+
+## กฎธุรกิจ → ตำแหน่งที่บังคับใช้
+
+| กฎ | ค่าใน `config.php` | บังคับใช้ที่ | ทดสอบ |
+|---|---|---|---|
+| BR-01 ยืม 7 วัน | `loan.days` | – | – |
+| BR-02 ยืมค้างไม่เกิน 3 เล่ม | `loan.max_active` | – | – |
+| BR-03 ค่าปรับ 5 บาท/วัน/เล่ม | `loan.fine_per_day` | – | – |
+| BR-04 สมาชิก suspended ยืมไม่ได้ | – | – | – |
