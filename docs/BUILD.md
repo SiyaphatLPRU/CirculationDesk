@@ -134,3 +134,10 @@ Get-ChildItem src,tests -Recurse -Filter *.php | % { C:\xampp\php\php.exe -l $_.
 | 2026-10-29 | โฟลเดอร์โปรเจกต์ว่าง ไม่มี repo ต้นฉบับ และเครื่องไม่มี Git | ยังไม่ได้ clone repo `miniproject-Circulation-Desk` | ติดตั้ง Git ด้วย `winget install Git.Git`, `git init` แล้วสร้าง baseline ใหม่จากสคริปต์ XAMPP และ prompt งาน (commit `671050a`) บันทึกเป็น CR-001 |
 | 2026-10-29 | PHP ใน XAMPP เป็นรุ่น 8.3 ไม่ใช่ 8.2 | รุ่นที่ติดมากับ XAMPP | เขียนโค้ดเฉพาะไวยากรณ์ที่มีใน PHP 8.2 (Docker ใช้ `php:8.2-apache`) |
 | 2026-10-29 | XAMPP ใช้ MariaDB 10.11 ส่วน Docker ใช้ MySQL 8.0 | ต่างผลิตภัณฑ์ | ใช้ SQL มาตรฐานเท่านั้น และ `health.php` แสดง `SELECT VERSION()` |
+| 2026-10-29 | ฐานข้อมูลทดสอบยังไม่มี `run.php` หยุดด้วย exit 2 พร้อมข้อความให้รัน `tests/create-test-db.sql` | ผู้ใช้ `cdesk` ไม่มีสิทธิ์ `CREATE` | ผู้พัฒนารัน `tests/create-test-db.sql` ด้วย `root` ในเครื่องพัฒนาหนึ่งครั้ง (ขั้นตอนเดียวกับที่ผู้สอนต้องทำ ดูข้อ 3.1) |
+| 2026-10-29 | `config.local.php` ที่แก้ด้วย PowerShell `Set-Content -Encoding utf8` ทำให้ PHP แจ้ง "strict_types declaration must be the very first statement" | PowerShell 5.1 ใส่ BOM ไว้หน้าไฟล์ | สร้างไฟล์ใหม่แบบ UTF-8 ไม่มี BOM (คัดลอกจาก `config.local.example.php` ด้วย `copy` ไม่มีปัญหานี้) |
+| 2026-10-29 | ไฟล์ทดสอบที่รันแยกด้วยตัวกรอง (เช่น `run.php Search`) เรียกฟังก์ชันช่วยที่อยู่ในไฟล์ทดสอบอื่นไม่ได้ | ฟังก์ชันช่วย `put_on_loan()`, `loan_service()`, `report_service()` อยู่ในไฟล์ทดสอบ | ย้ายฟังก์ชันช่วยไป `tests/lib.php` (commit `7681c59`, `83f5d5b`, `f44cba4`) |
+| 2026-10-29 | ไม่เกิด merge conflict | ทำทีละ branch และ merge เข้า `main` ด้วย `--no-ff` ก่อนเริ่ม branch ถัดไปเสมอ | – |
+
+> หมายเหตุความปลอดภัย: XAMPP ตั้ง `display_errors=On` ใน `php.ini` เป็นค่าเริ่มต้น แอปปิดการแสดงข้อผิดพลาดใน `bootstrap.php` แล้ว
+> แต่ข้อผิดพลาดก่อนโหลด bootstrap (เช่น parse error) อาจยังแสดง สำหรับเครื่องที่ใช้งานจริงให้ตั้ง `display_errors=Off` ใน `php.ini`

@@ -21,5 +21,6 @@
 - เอกสาร `docs/BUILD.md`, `docs/test-cases.md`, `docs/traceability-matrix.md`, `docs/change-requests.md`
 
 ### Changed
+- `docs/02-sci-and-naming-convention.md` 0.2.0 ปรับสถานะ SCI และเพิ่ม SCI-024 ถึง SCI-028, `README.md` ปรับตัวเลขให้ตรงกับของจริง
 - `config.php` อ่านตัวแปรสภาพแวดล้อมก่อน แล้วจึง fallback ไป `config.local.php` และเก็บกฎธุรกิจ BR-01..BR-04
 - หน้าตรวจสภาพแวดล้อมเดิมใน `index.php` ย้ายไป `health.php` และ `index.php` เป็นแดชบอร์ด

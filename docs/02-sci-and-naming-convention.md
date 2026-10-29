@@ -5,14 +5,15 @@
 | รหัส SCI | SCI-002 |
 | ชื่อเอกสาร | รายการ SCI และกติกาการตั้งชื่อ |
 | โครงการ | Circulation Desk – ระบบยืม-คืนหนังสือ |
-| เวอร์ชันเอกสาร | 0.1.0 |
-| สถานะ | Baseline |
+| เวอร์ชันเอกสาร | 0.2.0 |
+| สถานะ | ใช้งาน |
 
 ## ประวัติการแก้ไข
 
 | เวอร์ชัน | วันที่ | ผู้แก้ไข | รายละเอียด |
 |---|---|---|---|
 | 0.1.0 | 2026-10-29 | ผู้พัฒนา | จัดทำฉบับ baseline (สร้างขึ้นใหม่ในเครื่อง ดู CR-001) |
+| 0.2.0 | 2026-10-29 | ผู้พัฒนา | ปรับสถานะ SCI-006, 008, 010, 020–023 เป็น "สร้างแล้ว" และเพิ่ม SCI-024 ถึง SCI-028 จากการพัฒนา R-01..R-08 |
 
 ## 1. รายการ Software Configuration Items (SCI)
 
@@ -23,18 +24,25 @@
 | SCI-003 | การออกแบบ ER และสถาปัตยกรรม | `docs/03-design-er-and-architecture.md` | Baseline |
 | SCI-004 | โครงสร้างฐานข้อมูล | `db/init/01-schema.sql` | Baseline (Schema 1.0.0) |
 | SCI-005 | ข้อมูลตัวอย่าง | `db/init/02-seed.sql` | Baseline |
-| SCI-006 | คู่มือติดตั้งและรัน | `docs/BUILD.md` | วางแผน |
-| SCI-007 | สภาพแวดล้อม Docker | `docker-compose.yml`, `docker/` | Baseline |
-| SCI-008 | ทะเบียนคำขอเปลี่ยนแปลง | `docs/change-requests.md` | วางแผน |
-| SCI-009 | ค่าตั้งระบบ | `src/config/config.php` | Baseline |
-| SCI-010 | Traceability Matrix | `docs/traceability-matrix.md` | วางแผน |
-| SCI-011 | หน้าเว็บ (DocumentRoot) | `src/public/` | Baseline |
-| SCI-012 | แม่แบบตัวแปรสภาพแวดล้อม | `.env.example` | Baseline |
-| SCI-013 | README | `README.md` | Baseline |
-| SCI-020 | ไลบรารีพื้นฐาน | `src/lib/` | วางแผน |
-| SCI-021 | บริการตรรกะธุรกิจ | `src/services/` | วางแผน |
-| SCI-022 | ส่วนแสดงผล | `src/views/` | วางแผน |
-| SCI-023 | กรณีทดสอบ | `docs/test-cases.md` | วางแผน |
+| SCI-006 | คู่มือติดตั้งและรัน | `docs/BUILD.md` | สร้างแล้ว (0.2.0) |
+| SCI-007 | สภาพแวดล้อม Docker | `docker-compose.yml`, `docker/` | Baseline (ไม่ได้แก้ในรอบนี้) |
+| SCI-008 | ทะเบียนคำขอเปลี่ยนแปลง | `docs/change-requests.md` | สร้างแล้ว (0.2.0) |
+| SCI-009 | ค่าตั้งระบบ | `src/config/config.php` | แก้ไขแล้ว (อ่าน env ก่อน แล้ว fallback `config.local.php`, กฎธุรกิจ BR-01..BR-03) |
+| SCI-010 | Traceability Matrix | `docs/traceability-matrix.md` | สร้างแล้ว (0.2.0) |
+| SCI-011 | หน้าเว็บ (DocumentRoot) | `src/public/` | แก้ไขแล้ว (R-01..R-08) |
+| SCI-012 | แม่แบบตัวแปรสภาพแวดล้อม | `.env.example` | Baseline (ไม่ได้แก้ในรอบนี้) |
+| SCI-013 | README | `README.md` | แก้ไขแล้ว |
+| SCI-020 | ไลบรารีพื้นฐาน | `src/lib/` | สร้างแล้ว |
+| SCI-021 | บริการตรรกะธุรกิจ | `src/services/` | สร้างแล้ว |
+| SCI-022 | ส่วนแสดงผล | `src/views/`, `src/public/assets/style.css` | สร้างแล้ว |
+| SCI-023 | กรณีทดสอบ | `docs/test-cases.md` | สร้างแล้ว (0.2.0) |
+| SCI-024 | ชุดทดสอบอัตโนมัติ | `tests/` (`run.php`, `lib.php`, `*Test.php`, `create-test-db.sql`) | สร้างแล้ว |
+| SCI-025 | บันทึกการเปลี่ยนแปลงตามรุ่น | `CHANGELOG.md` | สร้างแล้ว (Unreleased) |
+| SCI-026 | แม่แบบค่าเฉพาะเครื่อง (XAMPP) | `src/config/config.local.example.php` | สร้างแล้ว |
+| SCI-027 | สคริปต์สร้างฐานข้อมูลบน XAMPP | `db/xampp/circulation-desk-xampp-setup.sql` | สร้างแล้ว (Schema 1.0.0 ตรงกับ `db/init`) |
+| SCI-028 | กฎการเข้าถึงบน XAMPP htdocs | `.htaccess` | สร้างแล้ว |
+
+ไฟล์ที่ **ไม่ใช่** SCI และต้องไม่อยู่ใน Git: `src/config/config.local.php`, `.env` (ระบุใน `.gitignore`)
 
 ## 2. กติกาการตั้งชื่อไฟล์
 
