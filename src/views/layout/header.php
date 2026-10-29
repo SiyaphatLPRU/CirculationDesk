@@ -4,7 +4,9 @@ declare(strict_types=1);
 /** @var string $title */
 $staff = current_staff();
 $nav = [
-    'index.php' => 'แดชบอร์ด',
+    'index.php'            => 'แดชบอร์ด',
+    'books/index.php'      => 'หนังสือ',
+    'categories/index.php' => 'หมวดหมู่',
 ];
 $current = substr($_SERVER['SCRIPT_NAME'] ?? '', strlen(base_path()) + 1);
 ?>
