@@ -26,7 +26,7 @@ Commit คือ hash สั้นของ commit งานใน branch (merge
 | R-03 จัดการสมาชิก | `feature/R-03-members` | `ef540c9`, `58f7925` | `src/services/MemberService.php`, `src/public/members/*` | TC-23 – TC-28, AT-11 – AT-14 | Merge แล้ว |
 | R-04 ค้นหาและดูสถานะหนังสือ | `feature/R-04-search` | `7681c59`, `45c4391` | `src/services/BookService.php` (`search`), `src/public/books/index.php`, `src/views/partials/pagination.php` | TC-29 – TC-33, AT-15 – AT-18 | Merge แล้ว |
 | R-05 ยืมหนังสือ | `feature/R-05-borrow` | `83f5d5b`, `ec1c549` | `src/services/LoanService.php` (`borrow`), `src/public/loans/borrow.php` | TC-34 – TC-39, AT-19 – AT-24 | Merge แล้ว |
-| R-06 คืนหนังสือ | `feature/R-06-return` | – | – | – | ยังไม่เริ่ม |
+| R-06 คืนหนังสือ | `feature/R-06-return` | `ce46461`, `1c527f2` | `src/services/LoanService.php` (`return`, `calculateFine`), `src/public/loans/return.php` | TC-40 – TC-45, AT-25 – AT-29 | Merge แล้ว |
 | R-07 ตรวจรายการเกินกำหนด | `feature/R-07-overdue` | – | – | – | ยังไม่เริ่ม |
 | R-08 รายงานประวัติการยืม-คืน | `feature/R-08-history` | – | – | – | ยังไม่เริ่ม |
 
@@ -36,5 +36,5 @@ Commit คือ hash สั้นของ commit งานใน branch (merge
 |---|---|---|---|
 | BR-01 ยืม 7 วัน | `loan.days` | `LoanService::borrow` | AT-19, TC-34, TC-38 |
 | BR-02 ยืมค้างไม่เกิน 3 เล่ม | `loan.max_active` | `LoanService::borrow` | AT-21, TC-36 |
-| BR-03 ค่าปรับ 5 บาท/วัน/เล่ม | `loan.fine_per_day` | – | – |
+| BR-03 ค่าปรับ 5 บาท/วัน/เล่ม | `loan.fine_per_day` | `LoanService::calculateFine` (ใช้ใน `return`) | AT-25 – AT-27, TC-41 – TC-43 |
 | BR-04 สมาชิก suspended ยืมไม่ได้ | – (สถานะ `members.status`) | `LoanService::borrow` | AT-20, TC-35 |
