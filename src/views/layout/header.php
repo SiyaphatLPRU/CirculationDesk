@@ -7,6 +7,7 @@ $nav = [
     'index.php'            => 'แดชบอร์ด',
     'books/index.php'      => 'หนังสือ',
     'categories/index.php' => 'หมวดหมู่',
+    'members/index.php'    => 'สมาชิก',
 ];
 $current = substr($_SERVER['SCRIPT_NAME'] ?? '', strlen(base_path()) + 1);
 ?>
