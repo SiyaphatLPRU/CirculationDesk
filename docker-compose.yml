@@ -1,0 +1,31 @@
+# SCI-007: สภาพแวดล้อม Docker (PHP 8.2 + Apache, MySQL 8.0)
+services:
+  app:
+    build: ./docker/php
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: ${DB_NAME:-circulation_desk}
+      DB_USER: ${DB_USER:-cdesk}
+      DB_PASS: ${DB_PASS}
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME:-circulation_desk}
+      MYSQL_USER: ${DB_USER:-cdesk}
+      MYSQL_PASSWORD: ${DB_PASS}
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:

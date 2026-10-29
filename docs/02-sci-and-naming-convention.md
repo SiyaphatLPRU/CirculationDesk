@@ -1,0 +1,71 @@
+# รายการ SCI และกติกาการตั้งชื่อ (SCI & Naming Convention)
+
+| รายการ | ค่า |
+|---|---|
+| รหัส SCI | SCI-002 |
+| ชื่อเอกสาร | รายการ SCI และกติกาการตั้งชื่อ |
+| โครงการ | Circulation Desk – ระบบยืม-คืนหนังสือ |
+| เวอร์ชันเอกสาร | 0.1.0 |
+| สถานะ | Baseline |
+
+## ประวัติการแก้ไข
+
+| เวอร์ชัน | วันที่ | ผู้แก้ไข | รายละเอียด |
+|---|---|---|---|
+| 0.1.0 | 2026-10-29 | ผู้พัฒนา | จัดทำฉบับ baseline (สร้างขึ้นใหม่ในเครื่อง ดู CR-001) |
+
+## 1. รายการ Software Configuration Items (SCI)
+
+| รหัส | รายการ | ตำแหน่ง | สถานะ |
+|---|---|---|---|
+| SCI-001 | กฎบัตรโครงการและความต้องการ | `docs/01-project-charter-and-requirements.md` | Baseline |
+| SCI-002 | รายการ SCI และกติกาการตั้งชื่อ | `docs/02-sci-and-naming-convention.md` | Baseline |
+| SCI-003 | การออกแบบ ER และสถาปัตยกรรม | `docs/03-design-er-and-architecture.md` | Baseline |
+| SCI-004 | โครงสร้างฐานข้อมูล | `db/init/01-schema.sql` | Baseline (Schema 1.0.0) |
+| SCI-005 | ข้อมูลตัวอย่าง | `db/init/02-seed.sql` | Baseline |
+| SCI-006 | คู่มือติดตั้งและรัน | `docs/BUILD.md` | วางแผน |
+| SCI-007 | สภาพแวดล้อม Docker | `docker-compose.yml`, `docker/` | Baseline |
+| SCI-008 | ทะเบียนคำขอเปลี่ยนแปลง | `docs/change-requests.md` | วางแผน |
+| SCI-009 | ค่าตั้งระบบ | `src/config/config.php` | Baseline |
+| SCI-010 | Traceability Matrix | `docs/traceability-matrix.md` | วางแผน |
+| SCI-011 | หน้าเว็บ (DocumentRoot) | `src/public/` | Baseline |
+| SCI-012 | แม่แบบตัวแปรสภาพแวดล้อม | `.env.example` | Baseline |
+| SCI-013 | README | `README.md` | Baseline |
+| SCI-020 | ไลบรารีพื้นฐาน | `src/lib/` | วางแผน |
+| SCI-021 | บริการตรรกะธุรกิจ | `src/services/` | วางแผน |
+| SCI-022 | ส่วนแสดงผล | `src/views/` | วางแผน |
+| SCI-023 | กรณีทดสอบ | `docs/test-cases.md` | วางแผน |
+
+## 2. กติกาการตั้งชื่อไฟล์
+
+- เอกสาร: `docs/NN-kebab-case.md` สำหรับเอกสารหลักที่มีลำดับ, เอกสารอื่นใช้ `kebab-case.md` (ยกเว้น `BUILD.md`, `README.md`, `CHANGELOG.md`)
+- SQL: `db/init/NN-kebab-case.sql` เรียงลำดับการรัน ไฟล์ที่ baseline แล้วห้ามแก้ ให้เพิ่มไฟล์ลำดับถัดไป
+- PHP: ไฟล์ฟังก์ชันใช้ตัวพิมพ์เล็ก (`helpers.php`), คลาสใช้ PascalCase ตรงกับชื่อคลาส (`LoanService.php`)
+
+## 3. เลขรุ่น
+
+- ซอฟต์แวร์และเอกสารใช้ Semantic Versioning `MAJOR.MINOR.PATCH`
+- Schema version เขียนไว้ที่หัวไฟล์ SQL (`-- Schema version: x.y.z`) ขึ้นเลขเมื่อมี migration ใหม่
+- Tag รุ่น `vX.Y.Z` สร้างโดยผู้สอนเท่านั้น
+
+## 4. Branch
+
+| ชนิด | รูปแบบ | ตัวอย่าง |
+|---|---|---|
+| ฟีเจอร์ตาม Requirement | `feature/R-xx-<สั้น>` | `feature/R-05-borrow` |
+| แก้ข้อบกพร่อง | `fix/<สั้น>` | `fix/fine-rounding` |
+| เอกสาร | `docs/<สั้น>` | `docs/build-and-traceability` |
+
+- `main` ต้องอยู่ในสภาพทำงานได้เสมอ รวมงานด้วย `git merge --no-ff` เพื่อเก็บประวัติ branch
+
+## 5. รูปแบบ Commit
+
+```text
+<ชนิด>(<ขอบเขต>): <สรุปภาษาอังกฤษ ขึ้นต้นด้วยกริยา>
+
+Refs: R-xx
+```
+
+- ชนิด: `feat`, `fix`, `docs`, `test`, `refactor`, `style`, `chore`
+- ขอบเขต: เช่น `auth`, `book`, `member`, `loan`, `report`, `db`, `docs`
+- บรรทัด `Refs:` อ้างถึง Requirement (หรือเลข Issue เมื่อมี)

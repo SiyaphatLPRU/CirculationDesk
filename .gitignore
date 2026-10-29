@@ -1,0 +1,9 @@
+# ไฟล์เฉพาะเครื่อง / ความลับ
+.env
+.claude/
+
+# IDE / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
