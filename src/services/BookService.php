@@ -59,6 +59,14 @@ final class BookService
         return ['rows' => $stmt->fetchAll(), 'total' => $total, 'page' => $page, 'pages' => $pages];
     }
 
+    /** รายการหนังสือทั้งหมดสำหรับช่องเลือก (หน้ายืม) */
+    public function options(): array
+    {
+        return $this->pdo->query(
+            'SELECT book_id, title, isbn, copies_available, copies_total FROM books ORDER BY title, book_id'
+        )->fetchAll();
+    }
+
     public function find(int $id): ?array
     {
         $stmt = $this->pdo->prepare(
