@@ -9,6 +9,7 @@ $nav = [
     'categories/index.php' => 'หมวดหมู่',
     'members/index.php'    => 'สมาชิก',
     'loans/borrow.php'     => 'ยืม',
+    'loans/return.php'     => 'คืน',
 ];
 $current = substr($_SERVER['SCRIPT_NAME'] ?? '', strlen(base_path()) + 1);
 ?>
