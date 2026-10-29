@@ -63,6 +63,11 @@ function loan_service(PDO $pdo): LoanService
     return new LoanService($pdo, config('loan'));
 }
 
+function report_service(PDO $pdo): ReportService
+{
+    return new ReportService($pdo, config('loan'));
+}
+
 function fetch_value(PDO $pdo, string $sql, array $params = []): mixed
 {
     $stmt = $pdo->prepare($sql);
