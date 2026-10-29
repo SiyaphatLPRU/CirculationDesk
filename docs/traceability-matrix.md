@@ -28,7 +28,7 @@ Commit คือ hash สั้นของ commit งานใน branch (merge
 | R-05 ยืมหนังสือ | `feature/R-05-borrow` | `83f5d5b`, `ec1c549` | `src/services/LoanService.php` (`borrow`), `src/public/loans/borrow.php` | TC-34 – TC-39, AT-19 – AT-24 | Merge แล้ว |
 | R-06 คืนหนังสือ | `feature/R-06-return` | `ce46461`, `1c527f2` | `src/services/LoanService.php` (`return`, `calculateFine`), `src/public/loans/return.php` | TC-40 – TC-45, AT-25 – AT-29 | Merge แล้ว |
 | R-07 ตรวจรายการเกินกำหนด | `feature/R-07-overdue` | `f44cba4`, `41888cb` | `src/services/ReportService.php` (`overdue`, `dashboard`), `src/public/loans/overdue.php`, `src/public/index.php` | TC-46 – TC-49, AT-30 – AT-32 | Merge แล้ว |
-| R-08 รายงานประวัติการยืม-คืน | `feature/R-08-history` | – | – | – | ยังไม่เริ่ม |
+| R-08 รายงานประวัติการยืม-คืน | `feature/R-08-history` | `063b1ec`, `f0a782c` | `src/services/ReportService.php` (`history`), `src/public/reports/history.php` | TC-50 – TC-54, AT-33 – AT-36 | Merge แล้ว |
 
 ## กฎธุรกิจ → ตำแหน่งที่บังคับใช้
 
