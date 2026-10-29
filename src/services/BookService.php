@@ -12,14 +12,51 @@ final class BookService
     {
     }
 
-    public function all(): array
+    /**
+     * R-04 ค้นหาด้วยคำเดียวจากชื่อ ผู้แต่ง ISBN และกรองตามหมวดหมู่ แบ่งหน้า
+     * จำนวนคงเหลือคำนวณจากรายการยืมจริง: copies_total - จำนวน loans ที่ status = 'borrowed'
+     * คืน ['rows' => [...], 'total' => int, 'page' => int, 'pages' => int]
+     */
+    public function search(string $q = '', ?int $categoryId = null, int $page = 1, int $perPage = 10): array
     {
-        return $this->pdo->query(
-            'SELECT b.book_id, b.isbn, b.title, b.author, b.copies_total, b.copies_available, c.name AS category_name
+        $where = [];
+        $params = [];
+        $q = trim($q);
+        if ($q !== '') {
+            $like = '%' . addcslashes($q, '%_\\') . '%';
+            $where[] = '(b.title LIKE ? OR b.author LIKE ? OR b.isbn LIKE ?)';
+            array_push($params, $like, $like, $like);
+        }
+        if ($categoryId !== null) {
+            $where[] = 'b.category_id = ?';
+            $params[] = $categoryId;
+        }
+        $whereSql = $where ? 'WHERE ' . implode(' AND ', $where) : '';
+
+        $stmt = $this->pdo->prepare("SELECT COUNT(*) FROM books b $whereSql");
+        $stmt->execute($params);
+        $total = (int) $stmt->fetchColumn();
+
+        $pages = max(1, (int) ceil($total / $perPage));
+        $page = min(max(1, $page), $pages);
+
+        $stmt = $this->pdo->prepare(
+            "SELECT b.book_id, b.isbn, b.title, b.author, b.copies_total, c.name AS category_name,
+                    b.copies_total - (SELECT COUNT(*) FROM loans l WHERE l.book_id = b.book_id AND l.status = 'borrowed') AS available
                FROM books b
                JOIN categories c ON c.category_id = b.category_id
-              ORDER BY b.title'
-        )->fetchAll();
+               $whereSql
+              ORDER BY b.title, b.book_id
+              LIMIT ? OFFSET ?"
+        );
+        foreach ($params as $i => $value) {
+            $stmt->bindValue($i + 1, $value, is_int($value) ? PDO::PARAM_INT : PDO::PARAM_STR);
+        }
+        $stmt->bindValue(count($params) + 1, $perPage, PDO::PARAM_INT);
+        $stmt->bindValue(count($params) + 2, ($page - 1) * $perPage, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return ['rows' => $stmt->fetchAll(), 'total' => $total, 'page' => $page, 'pages' => $pages];
     }
 
     public function find(int $id): ?array

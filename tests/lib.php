@@ -50,6 +50,14 @@ function reset_db(PDO $pdo): void
         (5, '9780000000059', 'Statistics for Engineers', 'Sample', 3, 1, 1)");
 }
 
+/** จำลองการยืมค้างโดยตรงในฐานข้อมูล (ไม่ผ่าน LoanService) */
+function put_on_loan(PDO $pdo, int $bookId, int $memberId = 1, string $borrowedAt = '2026-10-01', string $dueDate = '2026-10-08'): void
+{
+    $pdo->prepare("INSERT INTO loans (member_id, book_id, staff_id, borrowed_at, due_date, status)
+                   VALUES (?, ?, 1, ?, ?, 'borrowed')")->execute([$memberId, $bookId, $borrowedAt, $dueDate]);
+    $pdo->prepare('UPDATE books SET copies_available = copies_available - 1 WHERE book_id = ?')->execute([$bookId]);
+}
+
 function fetch_value(PDO $pdo, string $sql, array $params = []): mixed
 {
     $stmt = $pdo->prepare($sql);
