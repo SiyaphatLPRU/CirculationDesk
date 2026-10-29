@@ -8,6 +8,7 @@ $nav = [
     'books/index.php'      => 'หนังสือ',
     'categories/index.php' => 'หมวดหมู่',
     'members/index.php'    => 'สมาชิก',
+    'loans/borrow.php'     => 'ยืม',
 ];
 $current = substr($_SERVER['SCRIPT_NAME'] ?? '', strlen(base_path()) + 1);
 ?>
@@ -25,7 +26,9 @@ $current = substr($_SERVER['SCRIPT_NAME'] ?? '', strlen(base_path()) + 1);
   <a class="brand" href="<?= e(url('index.php')) ?>">📚 <?= e(config('app')['name']) ?></a>
   <nav class="nav">
     <?php foreach ($nav as $path => $label): ?>
-      <?php $active = strtok($current, '/') === strtok($path, '/'); ?>
+      <?php // หน้าเดียวกัน หรืออยู่ในโฟลเดอร์เดียวกับเมนูที่เป็น index.php (เช่น books/form.php -> หนังสือ)
+      $active = $current === $path
+          || (basename($path) === 'index.php' && dirname($path) !== '.' && dirname($current) === dirname($path)); ?>
       <a href="<?= e(url($path)) ?>"<?= $active ? ' class="active"' : '' ?>><?= e($label) ?></a>
     <?php endforeach; ?>
   </nav>

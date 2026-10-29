@@ -58,6 +58,11 @@ function put_on_loan(PDO $pdo, int $bookId, int $memberId = 1, string $borrowedA
     $pdo->prepare('UPDATE books SET copies_available = copies_available - 1 WHERE book_id = ?')->execute([$bookId]);
 }
 
+function loan_service(PDO $pdo): LoanService
+{
+    return new LoanService($pdo, config('loan'));
+}
+
 function fetch_value(PDO $pdo, string $sql, array $params = []): mixed
 {
     $stmt = $pdo->prepare($sql);
