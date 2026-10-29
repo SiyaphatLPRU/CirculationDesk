@@ -23,7 +23,7 @@ Commit คือ hash สั้นของ commit งานใน branch (merge
 |---|---|---|---|---|---|
 | R-01 เข้าสู่ระบบเจ้าหน้าที่ | `feature/R-01-login` | `9dbc768`, `43f32ba`, `1b2d2ff`, `eb7a52f` | `src/config/config.php`, `src/lib/auth.php`, `src/lib/csrf.php`, `src/lib/bootstrap.php`, `src/public/login.php`, `src/public/logout.php`, `src/public/health.php` | TC-01 – TC-11 | Merge แล้ว |
 | R-02 จัดการหนังสือและหมวดหมู่ | `feature/R-02-books` | `8a25303`, `b1ae514`, `c1423cb` | `src/services/BookService.php`, `src/services/CategoryService.php`, `src/public/books/*`, `src/public/categories/index.php`, `tests/run.php` | TC-12 – TC-22, AT-01 – AT-10 | Merge แล้ว |
-| R-03 จัดการสมาชิก | `feature/R-03-members` | – | – | – | ยังไม่เริ่ม |
+| R-03 จัดการสมาชิก | `feature/R-03-members` | `ef540c9`, `58f7925` | `src/services/MemberService.php`, `src/public/members/*` | TC-23 – TC-28, AT-11 – AT-14 | Merge แล้ว |
 | R-04 ค้นหาและดูสถานะหนังสือ | `feature/R-04-search` | – | – | – | ยังไม่เริ่ม |
 | R-05 ยืมหนังสือ | `feature/R-05-borrow` | – | – | – | ยังไม่เริ่ม |
 | R-06 คืนหนังสือ | `feature/R-06-return` | – | – | – | ยังไม่เริ่ม |
