@@ -11,14 +11,6 @@ function book_input(array $override = []): array
     ], $override);
 }
 
-/** จำลองการยืมค้างโดยตรงในฐานข้อมูล (ไม่ผ่าน LoanService) */
-function put_on_loan(PDO $pdo, int $bookId, int $memberId = 1): void
-{
-    $pdo->prepare("INSERT INTO loans (member_id, book_id, staff_id, borrowed_at, due_date, status)
-                   VALUES (?, ?, 1, '2026-10-01', '2026-10-08', 'borrowed')")->execute([$memberId, $bookId]);
-    $pdo->prepare('UPDATE books SET copies_available = copies_available - 1 WHERE book_id = ?')->execute([$bookId]);
-}
-
 test('AT-01 R-02 เพิ่มหนังสือใหม่ copies_available = copies_total', function (PDO $pdo) {
     $r = (new BookService($pdo))->create(book_input());
     assert_true($r['ok'], 'เพิ่มไม่สำเร็จ');
