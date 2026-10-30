@@ -1,6 +1,7 @@
 # Circulation Desk – ระบบยืม-คืนหนังสือ
 
 Mini Project ของผู้สอนรายวิชา 5672603 การจัดการโครงแบบซอฟต์แวร์ (SCM)
+Repository: https://github.com/SiyaphatLPRU/CirculationDesk
 PHP 8.2 ล้วน (ไม่ใช้ framework/Composer) + PDO + MySQL 8.0 / MariaDB (XAMPP)
 
 ## สถานะ
@@ -70,3 +71,6 @@ docs/          เอกสาร SCM
 | Traceability Matrix (SCI-010) | [docs/traceability-matrix.md](docs/traceability-matrix.md) |
 | กรณีทดสอบ (SCI-023) | [docs/test-cases.md](docs/test-cases.md) |
 | บันทึกการเปลี่ยนแปลง (SCI-025) | [CHANGELOG.md](CHANGELOG.md) |
+| โครงแบบสภาพแวดล้อม (SCI-029) | [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) |
+| ฐานข้อมูลโครงแบบ CMDB (SCI-030) | [Google Sheet: CMDB - Circulation Desk](https://docs.google.com/spreadsheets/d/1DRLI2n4CaTbTP__vCADwBKBWR4LlO0rnq6WFtmBsxPI/edit) |
+| คู่มือการใช้งานสำหรับเจ้าหน้าที่ (SCI-031) | [docs/คู่มือระบบยืม-คืนหนังสือ.docx](docs/คู่มือระบบยืม-คืนหนังสือ.docx) |

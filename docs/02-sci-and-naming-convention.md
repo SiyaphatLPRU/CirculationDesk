@@ -5,7 +5,7 @@
 | รหัส SCI | SCI-002 |
 | ชื่อเอกสาร | รายการ SCI และกติกาการตั้งชื่อ |
 | โครงการ | Circulation Desk – ระบบยืม-คืนหนังสือ |
-| เวอร์ชันเอกสาร | 0.2.0 |
+| เวอร์ชันเอกสาร | 0.3.0 |
 | สถานะ | ใช้งาน |
 
 ## ประวัติการแก้ไข
@@ -14,6 +14,7 @@
 |---|---|---|---|
 | 0.1.0 | 2026-10-29 | ผู้พัฒนา | จัดทำฉบับ baseline (สร้างขึ้นใหม่ในเครื่อง ดู CR-001) |
 | 0.2.0 | 2026-10-29 | ผู้พัฒนา | ปรับสถานะ SCI-006, 008, 010, 020–023 เป็น "สร้างแล้ว" และเพิ่ม SCI-024 ถึง SCI-028 จากการพัฒนา R-01..R-08 |
+| 0.3.0 | 2026-10-30 | ผู้พัฒนา | เพิ่ม SCI-029 (ENVIRONMENT.md), SCI-030 (CMDB บน Google Sheet) และ SCI-031 (คู่มือการใช้งาน) |
 
 ## 1. รายการ Software Configuration Items (SCI)
 
@@ -41,6 +42,9 @@
 | SCI-026 | แม่แบบค่าเฉพาะเครื่อง (XAMPP) | `src/config/config.local.example.php` | สร้างแล้ว |
 | SCI-027 | สคริปต์สร้างฐานข้อมูลบน XAMPP | `db/xampp/circulation-desk-xampp-setup.sql` | สร้างแล้ว (Schema 1.0.0 ตรงกับ `db/init`) |
 | SCI-028 | กฎการเข้าถึงบน XAMPP htdocs | `.htaccess` | สร้างแล้ว |
+| SCI-029 | เอกสารโครงแบบสภาพแวดล้อม | `docs/ENVIRONMENT.md` | สร้างแล้ว (0.1.0) |
+| SCI-030 | ฐานข้อมูลโครงแบบ (CMDB) | Google Sheet: [CMDB - Circulation Desk](https://docs.google.com/spreadsheets/d/1DRLI2n4CaTbTP__vCADwBKBWR4LlO0rnq6WFtmBsxPI/edit) | สร้างแล้ว (0.1.0) |
+| SCI-031 | คู่มือการใช้งานสำหรับเจ้าหน้าที่ | `docs/คู่มือระบบยืม-คืนหนังสือ.docx` | สร้างแล้ว (1.1) |
 
 ไฟล์ที่ **ไม่ใช่** SCI และต้องไม่อยู่ใน Git: `src/config/config.local.php`, `.env` (ระบุใน `.gitignore`)
 
