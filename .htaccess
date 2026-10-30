@@ -1,4 +1,4 @@
-# กรณีเปิดผ่าน htdocs ของ XAMPP (http://localhost/Circulation-Desk/src/public/)
+# กรณีเปิดผ่าน htdocs ของ XAMPP (http://localhost/CirculationDesk/src/public/)
 # ปิดการเข้าถึงทุกอย่างที่อยู่นอก src/public เช่น config, lib, docs, db, tests
 # (ถ้าใช้ VirtualHost ชี้ src/public หรือ Docker ไฟล์นี้ไม่มีผล)
 RewriteEngine On

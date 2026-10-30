@@ -30,7 +30,8 @@ PHP ต้องเปิด extension `pdo_mysql` (XAMPP เปิดไว้�
 
 ```powershell
 cd C:\xampp\htdocs
-git clone <url-ของ-repo> Circulation-Desk
+git clone https://github.com/SiyaphatLPRU/CirculationDesk.git
+cd CirculationDesk
 ```
 
 ### 2.2 สร้างฐานข้อมูล (ครั้งเดียว)
@@ -71,8 +72,8 @@ C:\xampp\php\php.exe -S localhost:8000 -t src/public
 ```apache
 <VirtualHost *:80>
     ServerName cdesk.localhost
-    DocumentRoot "C:/xampp/htdocs/Circulation-Desk/src/public"
-    <Directory "C:/xampp/htdocs/Circulation-Desk/src/public">
+    DocumentRoot "C:/xampp/htdocs/CirculationDesk/src/public"
+    <Directory "C:/xampp/htdocs/CirculationDesk/src/public">
         AllowOverride All
         Require all granted
     </Directory>
@@ -83,7 +84,7 @@ Restart Apache แล้วเปิด `http://cdesk.localhost/`
 
 **วิธี ค – ผ่าน htdocs โดยตรง**
 
-เปิด `http://localhost/Circulation-Desk/src/public/` ได้ทันที ไฟล์ `.htaccess` ที่รากโปรเจกต์ปิดการเข้าถึงทุกอย่างนอก `src/public` (config, lib, docs, db, tests) ด้วย 403
+เปิด `http://localhost/CirculationDesk/src/public/` ได้ทันที ไฟล์ `.htaccess` ที่รากโปรเจกต์ปิดการเข้าถึงทุกอย่างนอก `src/public` (config, lib, docs, db, tests) ด้วย 403
 
 ลิงก์ทุกจุดสร้างด้วย `url()` จึงทำงานได้ทั้งสามวิธีโดยไม่ต้องแก้โค้ด
 

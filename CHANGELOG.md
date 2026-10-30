@@ -20,7 +20,13 @@
 - ตัวรันทดสอบ CLI `tests/run.php` และสคริปต์ `tests/create-test-db.sql` สำหรับฐานข้อมูล `circulation_desk_test`
 - เอกสาร `docs/BUILD.md`, `docs/test-cases.md`, `docs/traceability-matrix.md`, `docs/change-requests.md`
 
+- `docs/ENVIRONMENT.md` (SCI-029) ตารางค่าโครงแบบสภาพแวดล้อม XAMPP และ Docker
+- CMDB บน Google Sheet (SCI-030) และคู่มือการใช้งานสำหรับเจ้าหน้าที่ (SCI-031)
+- CR-002 (ตัวอย่างเพิ่มคอลัมน์ `fine_paid_at`) ในทะเบียนคำขอเปลี่ยนแปลง สถานะรออนุมัติ CCB
+
 ### Changed
+- ชื่อโฟลเดอร์และ URL ในเอกสารเปลี่ยนจาก `Circulation-Desk` เป็น `CirculationDesk` ให้ตรงกับชื่อ repository
+- คู่มือการใช้งานเพิ่มขั้นตอนเข้าสู่ระบบ และพฤติกรรมของระบบเมื่อลบหมวดหมู่/หนังสือไม่ได้ ยืมไม่ได้ และหลังคืนหนังสือ
 - `docs/02-sci-and-naming-convention.md` 0.2.0 ปรับสถานะ SCI และเพิ่ม SCI-024 ถึง SCI-028, `README.md` ปรับตัวเลขให้ตรงกับของจริง
 - `config.php` อ่านตัวแปรสภาพแวดล้อมก่อน แล้วจึง fallback ไป `config.local.php` และเก็บกฎธุรกิจ BR-01..BR-04
 - หน้าตรวจสภาพแวดล้อมเดิมใน `index.php` ย้ายไป `health.php` และ `index.php` เป็นแดชบอร์ด

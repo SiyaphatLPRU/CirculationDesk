@@ -17,7 +17,7 @@
 ## วิธีใช้
 
 - ข้อมูลเริ่มต้น: ฐานข้อมูลที่นำเข้าจาก `db/xampp/circulation-desk-xampp-setup.sql` (บัญชี `admin` / `admin1234`)
-- URL ในตัวอย่างอ้างจาก base ของระบบ เช่น `http://localhost:8000/` (php -S) หรือ `http://localhost/Circulation-Desk/src/public/`
+- URL ในตัวอย่างอ้างจาก base ของระบบ เช่น `http://localhost:8000/` (php -S) หรือ `http://localhost/CirculationDesk/src/public/`
 - คอลัมน์ "ผล" ให้ผู้ทดสอบกรอก `ผ่าน` / `ไม่ผ่าน` พร้อมวันที่
 - กรณีทดสอบอัตโนมัติของบริการอยู่ใน `tests/` (รันด้วย `php tests/run.php`) อ้างรหัส `AT-xx` ในตารางท้ายเอกสาร
 
@@ -34,7 +34,7 @@
 | TC-07 | R-01 | ส่ง POST ไป `logout.php` โดยไม่มี/แก้ค่า `csrf_token` (เช่นแก้ใน DevTools) | ได้ 400 "คำขอไม่ถูกต้องหรือหมดอายุ" ไม่ทำงาน | |
 | TC-08 | R-01 | เปิด DevTools > Application > Cookies ดู `CDESKSESSID` | มี HttpOnly และ SameSite=Lax | |
 | TC-09 | R-01 | เปิด `health.php` โดยไม่เข้าสู่ระบบ | แสดงรุ่น PHP, รุ่นฐานข้อมูล (`SELECT VERSION()` เช่น `10.11.x-MariaDB` หรือ `8.0.x`), จำนวนตาราง 5 | |
-| TC-10 | R-01 | (XAMPP htdocs) เปิด `http://localhost/Circulation-Desk/src/config/config.local.php` และ `/docs/` | ได้ 403 Forbidden | |
+| TC-10 | R-01 | (XAMPP htdocs) เปิด `http://localhost/CirculationDesk/src/config/config.local.php` และ `/docs/` | ได้ 403 Forbidden | |
 | TC-11 | R-01 | หยุด MySQL แล้วเปิด `index.php` หลังเข้าสู่ระบบ | เห็นข้อความทั่วไป "ระบบขัดข้อง" ไม่มี stack trace หรือ SQL รายละเอียดอยู่ใน error log ของ Apache | |
 
 ## R-02 จัดการข้อมูลหนังสือและหมวดหมู่

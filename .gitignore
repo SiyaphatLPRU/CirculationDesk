@@ -1,6 +1,5 @@
 # ไฟล์เฉพาะเครื่อง / ความลับ
 .env
-.claude/
 src/config/config.local.php
 
 # IDE / OS
