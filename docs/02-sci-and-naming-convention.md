@@ -44,7 +44,7 @@
 | SCI-028 | กฎการเข้าถึงบน XAMPP htdocs | `.htaccess` | สร้างแล้ว |
 | SCI-029 | เอกสารโครงแบบสภาพแวดล้อม | `docs/ENVIRONMENT.md` | สร้างแล้ว (0.1.0) |
 | SCI-030 | ฐานข้อมูลโครงแบบ (CMDB) | Google Sheet: [CMDB - Circulation Desk](https://docs.google.com/spreadsheets/d/1CFOxE0rC2GueMrVz3em4DXkLlYoonNWbkejcUn7f4sk/edit) | สร้างแล้ว (0.2.0) |
-| SCI-031 | คู่มือการใช้งานสำหรับเจ้าหน้าที่ | `docs/คู่มือระบบยืม-คืนหนังสือ.docx` | สร้างแล้ว (1.1) |
+| SCI-031 | คู่มือการใช้งานสำหรับเจ้าหน้าที่ | `docs/คู่มือระบบยืม-คืนหนังสือ.docx` | สร้างแล้ว (1.2) |
 
 ไฟล์ที่ **ไม่ใช่** SCI และต้องไม่อยู่ใน Git: `src/config/config.local.php`, `.env` (ระบุใน `.gitignore`)
 
