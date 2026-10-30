@@ -21,27 +21,27 @@ Commit คือ hash สั้นของ commit งานใน branch (merge
 
 | Requirement | Branch | Commit | ไฟล์หลัก | Test Case | สถานะ |
 |---|---|---|---|---|---|
-| R-01 เข้าสู่ระบบเจ้าหน้าที่ | `feature/R-01-login` | `9dbc768`, `43f32ba`, `1b2d2ff`, `eb7a52f` | `src/config/config.php`, `src/lib/auth.php`, `src/lib/csrf.php`, `src/lib/bootstrap.php`, `src/public/login.php`, `src/public/logout.php`, `src/public/health.php` | TC-01 – TC-11 | Merge แล้ว |
-| R-02 จัดการหนังสือและหมวดหมู่ | `feature/R-02-books` | `8a25303`, `b1ae514`, `c1423cb` | `src/services/BookService.php`, `src/services/CategoryService.php`, `src/public/books/*`, `src/public/categories/index.php`, `tests/run.php` | TC-12 – TC-22, AT-01 – AT-10 | Merge แล้ว |
-| R-03 จัดการสมาชิก | `feature/R-03-members` | `ef540c9`, `58f7925` | `src/services/MemberService.php`, `src/public/members/*` | TC-23 – TC-28, AT-11 – AT-14 | Merge แล้ว |
-| R-04 ค้นหาและดูสถานะหนังสือ | `feature/R-04-search` | `7681c59`, `45c4391` | `src/services/BookService.php` (`search`), `src/public/books/index.php`, `src/views/partials/pagination.php` | TC-29 – TC-33, AT-15 – AT-18 | Merge แล้ว |
-| R-05 ยืมหนังสือ | `feature/R-05-borrow` | `83f5d5b`, `ec1c549` | `src/services/LoanService.php` (`borrow`), `src/public/loans/borrow.php` | TC-34 – TC-39, AT-19 – AT-24 | Merge แล้ว |
-| R-06 คืนหนังสือ | `feature/R-06-return` | `ce46461`, `1c527f2` | `src/services/LoanService.php` (`return`, `calculateFine`), `src/public/loans/return.php` | TC-40 – TC-45, AT-25 – AT-29 | Merge แล้ว |
-| R-07 ตรวจรายการเกินกำหนด | `feature/R-07-overdue` | `f44cba4`, `41888cb` | `src/services/ReportService.php` (`overdue`, `dashboard`), `src/public/loans/overdue.php`, `src/public/index.php` | TC-46 – TC-49, AT-30 – AT-32 | Merge แล้ว |
-| R-08 รายงานประวัติการยืม-คืน | `feature/R-08-history` | `063b1ec`, `f0a782c` | `src/services/ReportService.php` (`history`), `src/public/reports/history.php` | TC-50 – TC-54, AT-33 – AT-36 | Merge แล้ว |
+| R-01 เข้าสู่ระบบเจ้าหน้าที่ | `feature/R-01-login` | `ba6db5b`, `ae0dff2`, `0dc4283`, `fcaed9d` | `src/config/config.php`, `src/lib/auth.php`, `src/lib/csrf.php`, `src/lib/bootstrap.php`, `src/public/login.php`, `src/public/logout.php`, `src/public/health.php` | TC-01 – TC-11 | Merge แล้ว |
+| R-02 จัดการหนังสือและหมวดหมู่ | `feature/R-02-books` | `f7dabef`, `9287603`, `22a4b45` | `src/services/BookService.php`, `src/services/CategoryService.php`, `src/public/books/*`, `src/public/categories/index.php`, `tests/run.php` | TC-12 – TC-22, AT-01 – AT-10 | Merge แล้ว |
+| R-03 จัดการสมาชิก | `feature/R-03-members` | `0ad5610`, `637a2d1` | `src/services/MemberService.php`, `src/public/members/*` | TC-23 – TC-28, AT-11 – AT-14 | Merge แล้ว |
+| R-04 ค้นหาและดูสถานะหนังสือ | `feature/R-04-search` | `4d7d974`, `7acb8ec` | `src/services/BookService.php` (`search`), `src/public/books/index.php`, `src/views/partials/pagination.php` | TC-29 – TC-33, AT-15 – AT-18 | Merge แล้ว |
+| R-05 ยืมหนังสือ | `feature/R-05-borrow` | `e1039ea`, `caa8159` | `src/services/LoanService.php` (`borrow`), `src/public/loans/borrow.php` | TC-34 – TC-39, AT-19 – AT-24 | Merge แล้ว |
+| R-06 คืนหนังสือ | `feature/R-06-return` | `cd7906f`, `b355fbe` | `src/services/LoanService.php` (`return`, `calculateFine`), `src/public/loans/return.php` | TC-40 – TC-45, AT-25 – AT-29 | Merge แล้ว |
+| R-07 ตรวจรายการเกินกำหนด | `feature/R-07-overdue` | `110e06e`, `3302632` | `src/services/ReportService.php` (`overdue`, `dashboard`), `src/public/loans/overdue.php`, `src/public/index.php` | TC-46 – TC-49, AT-30 – AT-32 | Merge แล้ว |
+| R-08 รายงานประวัติการยืม-คืน | `feature/R-08-history` | `2ecd202`, `5e03592` | `src/services/ReportService.php` (`history`), `src/public/reports/history.php` | TC-50 – TC-54, AT-33 – AT-36 | Merge แล้ว |
 
 ## Merge commit บน `main`
 
 | Requirement | Merge commit |
 |---|---|
-| R-01 | `1a466f0` |
-| R-02 | `f31c677` |
-| R-03 | `2b9adb2` |
-| R-04 | `e6bf258` |
-| R-05 | `8b723f1` |
-| R-06 | `fe86130` |
-| R-07 | `ffffa5e` |
-| R-08 | `d7f0da9` |
+| R-01 | `5d5ca9b` |
+| R-02 | `8987c9d` |
+| R-03 | `a760bb6` |
+| R-04 | `2c7f445` |
+| R-05 | `550e549` |
+| R-06 | `4e83a08` |
+| R-07 | `f4c8c40` |
+| R-08 | `988ea70` |
 
 ## กฎธุรกิจ → ตำแหน่งที่บังคับใช้
 

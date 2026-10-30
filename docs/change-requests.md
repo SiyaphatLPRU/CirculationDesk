@@ -19,7 +19,7 @@
 
 | รหัส CR | สิ่งที่เปลี่ยน | เหตุผล | SCI ที่กระทบ | สถานะ |
 |---|---|---|---|---|
-| CR-001 | สร้าง baseline ของ repo ขึ้นใหม่ในเครื่อง (commit `671050a`): `docs/01`–`03`, `db/init/01-schema.sql`, `02-seed.sql`, `src/config/config.php`, `src/public/index.php`, `docker-compose.yml`, `docker/php/Dockerfile`, `.env.example`, `README.md` | เครื่องพัฒนาไม่มี repo ต้นฉบับ `miniproject-Circulation-Desk` (โฟลเดอร์ว่าง และไม่ได้ clone) ผู้สอนอนุญาตให้สร้างจากศูนย์ โดยใช้ schema และข้อมูลตัวอย่างจาก `circulation-desk-xampp-setup.sql` (ตรงกันทุกตาราง) และเนื้อหา Requirement จาก prompt งาน | SCI-001, 002, 003, 004, 005, 007, 009, 011, 012, 013 | รออนุมัติ CCB |
+| CR-001 | สร้าง baseline ของ repo ขึ้นใหม่ในเครื่อง (commit `83e8e33`): `docs/01`–`03`, `db/init/01-schema.sql`, `02-seed.sql`, `src/config/config.php`, `src/public/index.php`, `docker-compose.yml`, `docker/php/Dockerfile`, `.env.example`, `README.md` | เครื่องพัฒนาไม่มี repo ต้นฉบับ `miniproject-Circulation-Desk` (โฟลเดอร์ว่าง และไม่ได้ clone) ผู้สอนอนุญาตให้สร้างจากศูนย์ โดยใช้ schema และข้อมูลตัวอย่างจาก `circulation-desk-xampp-setup.sql` (ตรงกันทุกตาราง) และเนื้อหา Requirement จาก prompt งาน | SCI-001, 002, 003, 004, 005, 007, 009, 011, 012, 013 | รออนุมัติ CCB |
 | CR-002 | เพิ่มคอลัมน์ `fine_paid_at DATE NULL` ในตาราง `loans` ผ่าน migration ใหม่ `db/init/03-add-fine-paid-at.sql` (Schema version 1.0.0 → 1.1.0) พร้อมสคริปต์ย้อนกลับ, ปุ่มบันทึกการชำระค่าปรับในหน้าคืน และคอลัมน์ "ชำระแล้ว" ในรายงานประวัติ | รายงานตาม R-08 ต้องแยกค่าปรับที่ชำระแล้วกับค้างชำระ (ปัจจุบันบันทึกเฉพาะ `fine_amount`) ใช้เป็นตัวอย่างประกอบการสอนในเอกสารบทที่ 2, 5 และ 6 ยังไม่ได้ดำเนินการ | SCI-003, 004, 011, 021, 023, 024, 027 | รออนุมัติ CCB |
 
 ## หมายเหตุ
