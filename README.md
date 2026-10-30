@@ -14,7 +14,7 @@ PHP 8.2 ล้วน (ไม่ใช้ framework/Composer) + PDO + MySQL 8.0 /
 | บริการ (services) | 5 (`BookService`, `CategoryService`, `MemberService`, `LoanService`, `ReportService`) |
 | กรณีทดสอบอัตโนมัติ | 36 (AT-01 ถึง AT-36) ใน 8 ไฟล์ |
 | กรณีทดสอบด้วยมือ | 54 (TC-01 ถึง TC-54) |
-| รุ่น | Unreleased (ยังไม่ติด tag) |
+| รุ่น | 1.0.0 (Tag `v1.0.0`) · Baseline แรก `v0.1.0-baseline` |
 
 ## ฟังก์ชันหลัก
 
@@ -72,5 +72,5 @@ docs/          เอกสาร SCM
 | กรณีทดสอบ (SCI-023) | [docs/test-cases.md](docs/test-cases.md) |
 | บันทึกการเปลี่ยนแปลง (SCI-025) | [CHANGELOG.md](CHANGELOG.md) |
 | โครงแบบสภาพแวดล้อม (SCI-029) | [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) |
-| ฐานข้อมูลโครงแบบ CMDB (SCI-030) | [Google Sheet: CMDB - Circulation Desk](https://docs.google.com/spreadsheets/d/1DRLI2n4CaTbTP__vCADwBKBWR4LlO0rnq6WFtmBsxPI/edit) |
+| ฐานข้อมูลโครงแบบ CMDB (SCI-030) | [Google Sheet: CMDB - Circulation Desk](https://docs.google.com/spreadsheets/d/1CFOxE0rC2GueMrVz3em4DXkLlYoonNWbkejcUn7f4sk/edit) |
 | คู่มือการใช้งานสำหรับเจ้าหน้าที่ (SCI-031) | [docs/คู่มือระบบยืม-คืนหนังสือ.docx](docs/คู่มือระบบยืม-คืนหนังสือ.docx) |

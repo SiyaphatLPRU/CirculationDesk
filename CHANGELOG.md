@@ -1,9 +1,13 @@
 # CHANGELOG
 
 บันทึกการเปลี่ยนแปลงของ Circulation Desk ตามรูปแบบ [Keep a Changelog](https://keepachangelog.com/)
-เลขรุ่นใช้ Semantic Versioning (ยังไม่ติดเลขรุ่น/tag ผู้สอนเป็นผู้กำหนด)
+เลขรุ่นใช้ Semantic Versioning และบันทึกด้วย Git tag (ผู้สอนเป็นผู้กำหนด)
 
 ## [Unreleased]
+
+## [1.0.0] - 2026-10-30
+
+Product baseline แรก: R-01 ถึง R-08 ครบ ทดสอบอัตโนมัติผ่าน 36/36 (Tag `v1.0.0`)
 
 ### Added
 - R-01 เข้าสู่ระบบ/ออกจากระบบเจ้าหน้าที่ (`password_verify`, `session_regenerate_id`, session cookie `httponly` + `SameSite=Lax`)
@@ -30,3 +34,7 @@
 - `docs/02-sci-and-naming-convention.md` 0.2.0 ปรับสถานะ SCI และเพิ่ม SCI-024 ถึง SCI-028, `README.md` ปรับตัวเลขให้ตรงกับของจริง
 - `config.php` อ่านตัวแปรสภาพแวดล้อมก่อน แล้วจึง fallback ไป `config.local.php` และเก็บกฎธุรกิจ BR-01..BR-04
 - หน้าตรวจสภาพแวดล้อมเดิมใน `index.php` ย้ายไป `health.php` และ `index.php` เป็นแดชบอร์ด
+
+## [0.1.0-baseline] - 2026-10-29
+
+Initial baseline (Tag `v0.1.0-baseline`): เอกสาร `docs/01`–`03`, schema 1.0.0 และข้อมูลตัวอย่าง, `config.php`, หน้าตรวจสภาพแวดล้อม, สภาพแวดล้อม Docker และสคริปต์ XAMPP (ดู CR-001)
