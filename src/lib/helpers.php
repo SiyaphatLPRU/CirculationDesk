@@ -19,7 +19,7 @@ function e(mixed $value): string
 
 /**
  * base path ของ src/public ใน URL เช่น '' (VirtualHost, php -S)
- * หรือ '/Circulation-Desk/src/public' (เปิดผ่าน htdocs ของ XAMPP)
+ * หรือ '/CirculationDesk/src/public' (เปิดผ่าน htdocs ของ XAMPP)
  */
 function base_path(): string
 {
